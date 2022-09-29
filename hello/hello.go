@@ -6,7 +6,7 @@ func main() {
 	greetings := hello("Victor", "en")
 	fmt.Println(greetings)
 }
-
+// hello , je vien de mars 
 func hello(name string, language string) string {
 	switch language {
 	case "en":
