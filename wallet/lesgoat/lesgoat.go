@@ -28,7 +28,8 @@ func (w Wallet) Balance() Satoshi {
 }
 
 func (s Satoshi) String() string {
-	return fmt.Sprintf("%d SATOSHI", s)
+	bitcoins := s / 1_000_000_00
+	return fmt.Sprintf("%d BTC", bitcoins)
 }
 
 func (w *Wallet) Withdraw(amount Satoshi) {
