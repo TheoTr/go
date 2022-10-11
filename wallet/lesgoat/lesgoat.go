@@ -4,6 +4,10 @@ import "fmt"
 
 type Satoshi int
 
+func (s Satoshi) Validate() bool {
+	return s <= 21_000_000_0000_0000
+}
+
 type Stringer interface {
 	String() string
 }
