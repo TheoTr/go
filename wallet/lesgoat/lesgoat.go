@@ -1,1 +1,5 @@
-package lesgoat
+package wallet_lesgoat
+
+type Wallet struct{
+	
+}
