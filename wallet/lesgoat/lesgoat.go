@@ -17,6 +17,9 @@ type Wallet struct {
 }
 
 func (w *Wallet) Deposit(amount Satoshi) {
+	if !amount.Validate() {
+		return
+	}
 	w.balance += amount
 }
 
