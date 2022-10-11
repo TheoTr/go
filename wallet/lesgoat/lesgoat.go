@@ -27,8 +27,8 @@ func (w Wallet) Balance() Satoshi {
 	return w.balance
 }
 
-func (b Satoshi) String() string {
-	return fmt.Sprintf("%d SATOSHI", b)
+func (s Satoshi) String() string {
+	return fmt.Sprintf("%d SATOSHI", s)
 }
 
 func (w *Wallet) Withdraw(amount Satoshi) {
