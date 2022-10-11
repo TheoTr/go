@@ -1,1 +1,3 @@
-package kAnt1n
+package wallet_KAnt1n
+
+type Wallet struct{}

@@ -1,8 +1,8 @@
-package lesgoat
+package wallet_lesgoat
 
 import "testing"
 
-func TestSum(t *testing.T) {
+func TestWallet(t *testing.T) {
 
 	wallet := Wallet{}
 	wallet.Deposit(10)
