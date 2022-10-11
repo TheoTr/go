@@ -2,7 +2,7 @@ package wallet_lesgoat
 
 import "fmt"
 
-type Satoshi int
+type Satoshi uint64
 
 func (s Satoshi) Validate() bool {
 	return s <= 21_000_000_0000_0000
