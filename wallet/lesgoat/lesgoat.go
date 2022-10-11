@@ -1,6 +1,9 @@
 package wallet_lesgoat
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Satoshi uint64
 
@@ -32,6 +35,11 @@ func (s Satoshi) String() string {
 	return fmt.Sprintf("%d BTC", bitcoins)
 }
 
-func (w *Wallet) Withdraw(amount Satoshi) {
+func (w *Wallet) Withdraw(amount Satoshi) error {
+	if amount > w.balance {
+		return errors.New("oh no")
+	}
+
 	w.balance -= amount
+	return nil
 }
