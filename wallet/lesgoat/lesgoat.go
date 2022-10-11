@@ -37,7 +37,7 @@ func (s Satoshi) String() string {
 
 func (w *Wallet) Withdraw(amount Satoshi) error {
 	if amount > w.balance {
-		return errors.New("oh no")
+		return errors.New("NOT ENOUGH MONEY")
 	}
 
 	w.balance -= amount
