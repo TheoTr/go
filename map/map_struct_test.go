@@ -2,6 +2,13 @@ package map_struct
 
 import "testing"
 
-func test_map_strut(t *testing.T) {
-	return 0
+func TestSearch(t *testing.T) {
+	dictionary := map[string]string{"test": "this is just a test"}
+
+	got := Search(dictionary, "test")
+	want := "this is just a test"
+
+	if got != want {
+		t.Errorf("got %q want %q given, %q", got, want, "test")
+	}
 }
