@@ -13,5 +13,5 @@ func (w *GarbageWriter) Write(b []byte) (int, error) {
 	for _, r := range b {
 		w.writtenData = append(w.writtenData, r+20)
 	}
-	return 0, nil
+	return len(b), nil
 }
