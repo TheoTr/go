@@ -13,6 +13,12 @@ func NewSlowWriter(speed int) *SlowWriter {
 }
 
 func (w *SlowWriter) Write(b []byte) (int, error) {
-	w.currentData = append(w.currentData, b[0:w.speed]...)
-	return w.speed, nil
+	actuallyWritten := len(b)
+	if actuallyWritten > w.speed {
+		actuallyWritten = w.speed
+	}
+
+	w.currentData = append(w.currentData, b[0:actuallyWritten]...)
+
+	return actuallyWritten, nil
 }
