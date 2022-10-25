@@ -10,27 +10,15 @@ func main() {
 	atCommand := "AT+JOIN"
 	badSerial := io.NewSlowWriter(3)
 
-	log.Println(atCommand)
-	n, err := badSerial.Write([]byte(atCommand))
-	if err != nil {
-		log.Fatal(err)
+	for len(atCommand) > 0 {
+
+		n, err := badSerial.Write([]byte(atCommand))
+		if err != nil {
+			log.Fatal(err)
+		}
+		atCommand = atCommand[n:]
+		log.Println(n, atCommand)
+
 	}
 
-	atCommand = atCommand[3:]
-	log.Println(n, atCommand)
-
-	n, err = badSerial.Write([]byte(atCommand))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	atCommand = atCommand[3:]
-	log.Println(n, atCommand)
-
-	n, err = badSerial.Write([]byte(atCommand))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	log.Println(n, atCommand)
 }
