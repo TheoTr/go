@@ -75,7 +75,7 @@ func TestGarbageWriter_Write(t *testing.T) {
 		t.Fatal("the writer should write garbage, but not fail")
 	}
 
-	if data == w.writtenData {
+	if data == string(w.writtenData) {
 		t.Fatal("the data written shouldn't be the same as the original one")
 	}
 
