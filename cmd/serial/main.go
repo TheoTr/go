@@ -1,24 +1,33 @@
 package main
 
 import (
+	goio "io"
 	"log"
 
 	"github.com/TheoTr/go/io"
 )
 
 func main() {
-	atCommand := "AT+JOIN"
 	badSerial := io.NewSlowWriter(3)
+	err := SerialSend(badSerial, "AT+JOIN")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+}
+
+func SerialSend(serial goio.Writer, atCommand string) error {
 
 	for len(atCommand) > 0 {
 
-		n, err := badSerial.Write([]byte(atCommand))
+		n, err := serial.Write([]byte(atCommand))
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 		atCommand = atCommand[n:]
 		log.Println(n, atCommand)
 
 	}
 
+	return nil
 }
